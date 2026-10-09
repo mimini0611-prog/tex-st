@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>找到你的溝通模式｜自我探索測驗</title>
+<style>
+:root{--peach:#ffe0c7;--peach2:#fff2e8;--ink:#78533f;--blue:#5f91a8;--blue2:#eaf4f8;--line:#f0c7a8;--white:#fffdfb;--muted:#8b8b8b}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#ffdec3,#fff0e4);font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.65}
+.wrap{width:min(900px,100% - 28px);margin:32px auto 60px}.hero{background:var(--white);border-radius:28px;padding:clamp(22px,5vw,48px);box-shadow:0 12px 35px #9b654015;border:1px solid #fff}
+.eyebrow{color:var(--blue);font-weight:800;letter-spacing:.12em;font-size:.85rem}.hero h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.18;margin:.45rem 0 1rem}.hero p{max-width:700px;margin:.5rem 0}.pill{display:inline-block;background:var(--blue2);color:#426d81;border-radius:999px;padding:5px 12px;font-size:.88rem;font-weight:700;margin:5px 5px 0 0}
+.notice{background:#fff2e8;border-left:4px solid #efb58c;padding:12px 15px;border-radius:10px;margin:20px 0 0;font-size:.93rem}.progress-wrap{margin:22px 0 10px;display:flex;align-items:center;gap:12px;color:var(--blue);font-weight:700}.progress{height:8px;background:#e7edf0;border-radius:99px;overflow:hidden;flex:1}.progress span{display:block;height:100%;width:0;background:var(--blue);transition:width .2s}
+.question{background:var(--white);border:1px solid #fff;border-radius:18px;padding:20px;margin:13px 0;box-shadow:0 4px 16px #9b65400a}.qtop{display:flex;gap:12px;align-items:flex-start}.num{flex:0 0 36px;height:36px;display:grid;place-items:center;background:var(--blue2);color:var(--blue);border-radius:12px;font-weight:900}.statement{font-weight:650;font-size:1.03rem;flex:1}.choices{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:16px 0 0 48px}.choice{position:relative}.choice input{position:absolute;opacity:0;inset:0;cursor:pointer}.choice label{display:flex;align-items:center;justify-content:center;min-height:43px;border:1px solid #d5e4ea;border-radius:10px;background:#f7fbfc;color:#4d7c92;font-weight:800;cursor:pointer;transition:.15s}.choice input:checked+label{background:var(--blue);color:white;border-color:var(--blue);box-shadow:0 3px 8px #5f91a833}.choice input:focus-visible+label{outline:3px solid #e8a87d;outline-offset:2px}.scale{display:flex;justify-content:space-between;margin:8px 0 0 48px;color:var(--muted);font-size:.77rem}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}.btn{border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#fffaf6;color:var(--ink);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}.error{color:#a34835;font-weight:700;display:none;margin:10px 0}.result{display:none;background:var(--white);border-radius:24px;padding:clamp(22px,5vw,42px);margin-top:24px;box-shadow:0 12px 35px #9b654015}.result h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:.2rem 0}.main-type{background:var(--blue2);border-radius:18px;padding:20px;margin:18px 0}.score-row{display:grid;grid-template-columns:145px 1fr 42px;gap:12px;align-items:center;margin:12px 0}.bar{height:12px;border-radius:99px;background:#edf0f1;overflow:hidden}.bar span{display:block;height:100%;background:var(--blue);border-radius:99px}.score-name{font-weight:700}.score-num{text-align:right;font-weight:800;color:var(--blue)}.subtle{color:#777;font-size:.9rem}.result-card{border:1px solid #f1d9c8;border-radius:15px;padding:16px;margin:12px 0}.result-card h3{margin:0 0 5px}.footer{text-align:center;font-size:.8rem;color:#856b5a;margin:20px 0}
+@media(max-width:560px){.wrap{width:calc(100% - 16px);margin:8px auto 30px}.hero{border-radius:20px;padding:22px 18px}.question{padding:15px 12px}.choices{margin-left:0;gap:5px}.choice label{min-height:40px}.scale{margin-left:0}.qtop{gap:9px}.num{flex-basis:31px;height:31px}.score-row{grid-template-columns:110px 1fr 32px;gap:8px;font-size:.88rem}}
+</style></head>
+<body><main class="wrap">
+<section class="hero"><div class="eyebrow">SELF DISCOVERY · 溝通練習</div><h1>找到你的溝通模式</h1><p>透過 27 個日常情境，看看自己在互動與壓力下，較常使用哪些溝通方式。這不是要替你貼標籤，而是幫助你更理解自己的習慣。</p><div><span class="pill">約 5–8 分鐘</span><span class="pill">27 題</span><span class="pill">免登入</span></div><div class="notice"><b>作答方式：</b>請依照「平常的自己」選擇 1–5 分。1＝幾乎不符合，5＝非常符合。沒有標準答案，請依第一直覺作答。結果只在此頁計算，不會傳送到伺服器。</div></section>
+<div class="progress-wrap"><span id="progressText">已完成 0 / 27 題</span><div class="progress"><span id="progressBar"></span></div></div>
+<form id="quiz" novalidate><div id="questions"></div><p class="error" id="error">還有題目尚未作答，請完成所有題目後再查看結果。</p><div class="actions"><button class="btn primary" type="submit">查看我的結果</button><button class="btn secondary" type="button" id="reset">重新作答</button></div></form>
+<section class="result" id="result" aria-live="polite"><div class="eyebrow">YOUR COMMUNICATION PROFILE</div><h2>你的溝通模式分析</h2><p class="subtle">分數反映你對這份題目的自我評估，不是人格診斷，也不代表你永遠只會用一種方式。</p><div class="main-type" id="mainType"></div><h3>九種模式分數</h3><p class="subtle">每一類由 3 題組成，分數範圍為 3–15 分。分數較高，表示你在這份問卷中較認同相關描述。</p><div id="scores"></div><h3 style="margin-top:28px">理解你的結果</h3><div id="interpretations"></div><div class="notice"><b>給自己的小練習：</b>當你察覺自己進入熟悉的溝通模式時，先停一下，問問自己：「我現在的感受和需要是什麼？對方的感受是什麼？眼前的情境需要什麼？」再選擇如何回應。</div><div class="actions"><button class="btn primary" id="print" type="button">列印／另存結果</button><button class="btn secondary" id="again" type="button">再測一次</button></div></section>
+<div class="footer">自我探索用途｜請把結果當作反思起點，而不是對自己或他人的定論。</div></main>
+<script>
+const qs=[
+'在與他人的互動關係中，我常是委屈求全的一方。',
+'為了避免與他人產生衝突，即使我是對的，我也會讓步。',
+'遇到讓我不滿意的事，我通常先責怪他人。',
+'面對任何人，態度冷靜和理性回應是我一貫的作風。',
+'我常分析自己的意見給他人聽，以顯示我是有兩把刷子的人。',
+'當我的看法與他人不同時，我會故意忽略，假裝沒這回事。',
+'當他人要求我無法接受時，我會顧左右而言他，以免產生衝突。',
+'在互動中發生問題時，我可以適時地向他人表達我內在的真實感受。',
+'我會透過尊重的態度，與他人討論雙方不同的期待。',
+'我會想讓他人開心而隱藏自己的喜好或意見。',
+'為了關係或長遠的未來，我願意暫時忍讓。',
+'當我不高興時，我會以強勢的態度要求他人配合我的想法或需求。',
+'我比較在意事情是否能解決，較少考慮他人的感受。',
+'我說話會講究邏輯思考、理性思維，來顯示我是聰明、有智慧的人。',
+'為了減少尷尬，我會說一些言不及義的話。',
+'當我與他人意見不合時，我會難同鴨講，不表明真正看法，來緩和氣氛。',
+'我接納我自己真實的面貌，期許自己是內外一致的人。',
+'意見不同時，我會溝通，試著找到彼此都贊同的方式。',
+'我不敢表達負面的情緒或感受，因為我擔心他人會不喜歡我。',
+'他人認為我不對時，不管是否有理，我都會很快表達歉意，減少他人的不滿。',
+'我會因為面子掛不住而指責他人的不是。',
+'我面對衝突和壓力時，會像機器人般聚焦在問題上，以求有效率地解決。',
+'我說話常會引經據典，好讓人佩服我。',
+'當我不想理他人的時候，我會把自己放空。',
+'在關係出現緊張情境時，我會裝作沒事，故做輕鬆狀。',
+'與他人互動時，我可以考量他人和情境，適時地表達自己的感受與需要。',
+'即使我對他人有所不滿，我仍願意理解對方，與其協調，並調整自己。'
+];
+const cats=[
+{key:'A',name:'弱勢的討好',short:'常為了避免不愉快而委屈自己',desc:'你可能很在意別人的感受，也希望關係保持和諧；有時卻容易把自己的需要放到後面。可以練習用溫和但清楚的方式說出「我希望……」或「這次我不太方便」。'},
+{key:'B',name:'顧及關係的討好',short:'願意退讓，重視關係與長遠互動',desc:'你可能會為了關係、合作或長遠目標先做調整。可以留意這份退讓是不是出於自己的選擇，也記得確認自己的界線與真正想法。'},
+{key:'C',name:'威權護顏的指責',short:'受挫時可能透過責怪或強勢維護立場',desc:'當你覺得被冒犯或面子受損時，可能會比較快指出別人的問題。試著把「你就是……」改成「這件事讓我……，我希望……」，更容易讓對話回到具體問題。'},
+{key:'D',name:'唯理至上的超理智',short:'重視問題、邏輯與效率',desc:'你可能擅長分析和解決問題，但在急著找答案時，容易略過情緒與關係。除了問「怎麼解決」，也可以加問「這件事讓我和對方有什麼感受？」'},
+{key:'E',name:'證明自己的超理智',short:'重視展現能力、知識或論證',desc:'你可能希望自己的想法被看見，也在意別人是否認可你的能力。可以試著把重點從「我要證明我有道理」轉成「我們怎麼一起弄清楚問題」。'},
+{key:'F',name:'逃避的打岔',short:'不舒服時可能忽略或離開當下話題',desc:'當對話太難受時，你可能會先抽離、放空或避開。暫停本身沒有問題；可以清楚告訴對方「我需要整理一下，晚點再談」，並約定回來討論的時間。'},
+{key:'G',name:'事緩則圓的打岔',short:'傾向緩和氣氛，避免衝突升高',desc:'你可能很會察覺緊張氣氛，也會想讓場面輕鬆一些。可以先承認氣氛，再溫和地回到重點，例如「這有點難談，但我想我們還是可以一起說清楚」。'},
+{key:'H',name:'人我兼顧的一致',short:'能表達自己，也考量對方與情境',desc:'你可能較能同時照顧自己的感受、對方的立場與眼前情況。這不代表每次都能完美溝通；遇到高壓情境時，仍可給自己時間確認真正的需要。'},
+{key:'I',name:'反求諸己的一致',short:'願意理解對方、協調並調整自己',desc:'你可能願意反思自己在互動中的角色，也願意理解不同觀點。可以繼續保留彈性，同時記得調整不等於所有責任都由自己承擔。'}
+];
+const mapping=['A','B','C','D','E','F','G','H','I','A','B','C','D','E','F','G','H','I','A','B','C','D','E','F','G','H','I'];
+const host=document.getElementById('questions');
+qs.forEach((q,i)=>{const d=document.createElement('section');d.className='question';d.innerHTML=`<div class="qtop"><span class="num">${i+1}</span><div class="statement">${q}</div></div><div class="choices" role="radiogroup" aria-label="第 ${i+1} 題分數">${[1,2,3,4,5].map(n=>`<div class="choice"><input type="radio" id="q${i}_${n}" name="q${i}" value="${n}"><label for="q${i}_${n}">${n}</label></div>`).join('')}</div><div class="scale"><span>1 幾乎不符合</span><span>5 非常符合</span></div>`;host.appendChild(d)});
+const form=document.getElementById('quiz');function updateProgress(){const n=qs.reduce((s,_,i)=>s+(form.querySelector(`input[name=q${i}]:checked`)?1:0),0);document.getElementById('progressText').textContent=`已完成 ${n} / ${qs.length} 題`;document.getElementById('progressBar').style.width=(n/qs.length*100)+'%';}form.addEventListener('change',updateProgress);
+form.addEventListener('submit',e=>{e.preventDefault();const missing=qs.findIndex((_,i)=>!form.querySelector(`input[name=q${i}]:checked`));if(missing!==-1){document.getElementById('error').style.display='block';host.children[missing].scrollIntoView({behavior:'smooth',block:'center'});host.children[missing].style.borderColor='#d57a60';return;}document.getElementById('error').style.display='none';const sums=Object.fromEntries(cats.map(c=>[c.key,0]));qs.forEach((_,i)=>sums[mapping[i]]+=Number(form.querySelector(`input[name=q${i}]:checked`).value));const sorted=[...cats].sort((a,b)=>sums[b.key]-sums[a.key]);const top=sorted[0],ties=sorted.filter(c=>sums[c.key]===sums[top.key]);document.getElementById('mainType').innerHTML=`<div class="eyebrow">${ties.length>1?'並列較高的模式':'目前分數最高的模式'}</div><h2>${ties.map(c=>c.key+'｜'+c.name).join('、')}</h2><p>${ties.map(c=>c.short).join('；')}</p><p>${ties.map(c=>c.desc).join('<br><br>')}</p><p class="subtle">${ties.length>1?'最高分並列，表示這幾種描述在本次作答中同樣突出。':'最高分是本次作答中你最認同的描述，不等於固定人格。'}</p>`;
+ document.getElementById('scores').innerHTML=sorted.map(c=>`<div class="score-row"><div class="score-name">${c.key}｜${c.name}</div><div class="bar"><span style="width:${sums[c.key]/15*100}%"></span></div><div class="score-num">${sums[c.key]} / 15</div></div>`).join('');document.getElementById('interpretations').innerHTML=sorted.map(c=>`<div class="result-card"><h3>${c.key}｜${c.name}　<small>${sums[c.key]} / 15 分</small></h3><p>${c.desc}</p></div>`).join('');document.getElementById('result').style.display='block';document.getElementById('result').scrollIntoView({behavior:'smooth'});});
+function resetQuiz(){form.reset();document.getElementById('result').style.display='none';document.getElementById('error').style.display='none';host.querySelectorAll('.question').forEach(q=>q.style.borderColor='#fff');updateProgress();window.scrollTo({top:0,behavior:'smooth'});}document.getElementById('reset').addEventListener('click',resetQuiz);document.getElementById('again').addEventListener('click',resetQuiz);document.getElementById('print').addEventListener('click',()=>window.print());
+</script></body></html>
